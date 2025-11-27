@@ -41,3 +41,7 @@ values ('0010','123',1780.8,'D','11/12/2020','16:12')
 
 
 select * from transacciones
+
+select * from transacciones where tipo = 'D';
+select * from transacciones where monto::numeric between 200 and 2000 ;
+select codigo,monto,tipo,fecha from transacciones where fecha is not null;

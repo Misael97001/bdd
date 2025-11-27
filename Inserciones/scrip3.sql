@@ -33,3 +33,8 @@ insert into estudiantes (cedula,nombre,descripcion,email,fecha_nacimiento)
 values ('6987656478','Carlos','padre','carlos@gmail.com','24/12/1988')
 
 select * from estudiantes
+
+select nombre, cedula from estudiantes;
+select nombre from estudiantes where cedula like '17%';
+Select nombre from estudiantes where nombre like 'A%';
+

@@ -39,3 +39,14 @@ insert into cuentas (numero_cuenta,cedula_propietario,fecha_creacion,saldo)
 values('64151','84882','13/11/2019',1886.30)
 
 select * from cuentas
+
+select numero_cuenta, saldo from cuentas;
+
+select * from cuentas where fecha_creacion 
+    between current_date - interval '2 months' and current_date;
+
+select numero_cuenta, saldo from cuentas where fecha_creacion 
+ 	between current_date - interval '2 months' and current_date;
+
+	
+
