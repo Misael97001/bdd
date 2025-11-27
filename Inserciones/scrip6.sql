@@ -37,7 +37,10 @@ insert into transacciones (codigo,numero_cuenta,monto,tipo,fecha,hora)
 values ('0009','1234',340.8,'D','12/10/2019','13:32')
 
 insert into transacciones (codigo,numero_cuenta,monto,tipo,fecha,hora)
-values ('0010','123',1780.8,'D','11/12/2020','16:12')
+values ('0010','123',300.8,'D','11/09/2020','16:12')
+
+insert into transacciones (codigo,numero_cuenta,monto,tipo,fecha,hora)
+values ('0130','123',300.8,'D','11/09/2020','16:12')
 
 
 select * from transacciones
@@ -45,3 +48,7 @@ select * from transacciones
 select * from transacciones where tipo = 'D';
 select * from transacciones where monto::numeric between 200 and 2000 ;
 select codigo,monto,tipo,fecha from transacciones where fecha is not null;
+
+update transacciones set Tipo='T'
+where monto::numeric>100 and monto::numeric<500
+and extract(month from fecha)=9 and hora between '14:00' and '20:00'

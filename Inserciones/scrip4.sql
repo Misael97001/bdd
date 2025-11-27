@@ -18,11 +18,14 @@ values
 (19,'1758963241','16/11/2001','07:50'),
 (20,'1234598765','17/11/2001','06:45'),
 (21,'1712345698','18/11/2001','07:55'),
-(22,'0987654321','19/11/2001','08:20'),
-(23,'9876543216','21/11/2001','08:30');
+(22,'0987654321','19/08/2001','08:20'),
+(23,'9876543216','21/08/2001','08:30');
 
 select * from registros_entrada
 
 Select cedula_empleado, fecha, hora from registros_entrada;
 select * from registros_entrada where hora between '07:00' and '14:00';
 select * from registros_entrada where hora > '08:00';
+
+update registros_entrada set cedula_empleado='082345679'
+where extract(month from fecha)=8;
