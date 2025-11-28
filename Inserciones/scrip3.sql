@@ -40,3 +40,6 @@ Select nombre from estudiantes where nombre like 'A%';
 
 update estudiantes set nombre='Hernàdez'
 where cedula like '17%'
+
+delete from estudiantes
+where cedula like '%05';

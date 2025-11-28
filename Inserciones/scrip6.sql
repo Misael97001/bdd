@@ -52,3 +52,8 @@ select codigo,monto,tipo,fecha from transacciones where fecha is not null;
 update transacciones set Tipo='T'
 where monto::numeric>100 and monto::numeric<500
 and extract(month from fecha)=9 and hora between '14:00' and '20:00'
+
+delete from transacciones
+where extract(month from fecha)=8
+	and extract(year from fecha)=2025
+	and hora between '14:00' and '18:00'

@@ -29,3 +29,6 @@ select * from registros_entrada where hora > '08:00';
 
 update registros_entrada set cedula_empleado='082345679'
 where extract(month from fecha)=8;
+
+delete from registros_entrada
+where extract(month from fecha) = 6;
