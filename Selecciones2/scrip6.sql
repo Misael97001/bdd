@@ -57,3 +57,17 @@ delete from transacciones
 where extract(month from fecha)=8
 	and extract(year from fecha)=2025
 	and hora between '14:00' and '18:00'
+
+select * from transacciones
+where tipo='C' and
+numero_cuenta::int between 222001 and 22004;
+
+select * from transacciones
+where tipo='D' and fecha='25/05/2025'
+and numero_cuenta::int between 22007 and 22010;
+
+select * from transacciones
+where (codigo between 1 and 5) and
+(numero_cuenta::int between 22002 and 22004) 
+and extract(month from fecha)=5 
+and extract(day from fecha) in (26,29);

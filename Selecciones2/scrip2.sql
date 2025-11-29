@@ -54,13 +54,3 @@ where cedula_propietario like '17%'
 
 delete from cuentas
 where cedula_propietario like '10%';
-
-select numero_cuenta, saldo from cuentas 
-where saldo::numeric>100 and saldo::numeric<1000;
-
-select * from cuentas
-where fecha_creacion between 
-current_date - interval '1 year' and current_date;
-
-select * from cuentas
-where saldo::numeric=0 or cedula_propietario like '%2';
