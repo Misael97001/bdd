@@ -55,3 +55,49 @@ or
     and cedula_empleado like '08%'
     and hora between '09:00' and '13:00'
 );
+
+-- DEBER DE RELACIONES DE LLAVES
+
+select * from regitros_entrada
+delete from registros_entrada
+CREATE TABLE empleado (
+    codigo_empleado INT NOT NULL,
+    nombre VARCHAR(25) NOT NULL,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    CONSTRAINT empleado_pk PRIMARY KEY (codigo_empleado)
+);
+
+-- Ajustar tu tabla registros_entrada para incluir la llave foránea
+ALTER TABLE registros_entrada ADD COLUMN codigo_empleado INT NOT NULL;
+ALTER TABLE registros_entrada ADD CONSTRAINT registros_entrada_empleado_fk
+    FOREIGN KEY (codigo_empleado) REFERENCES empleado(codigo_empleado);
+
+INSERT INTO empleado (codigo_empleado, nombre, fecha, hora) 
+VALUES (2201, 'Juan Pérez', '2023-01-15', '08:00:00');
+
+INSERT INTO registros_entrada (codigo_registro, cedula_empleado, fecha, hora, codigo_empleado) VALUES
+(1, '1712345678', '2023-08-05', '08:15:00', 2201),
+(2, '1712345678', '2023-08-12', '09:30:00', 2201),
+(3, '1712345678', '2023-09-01', '08:05:00', 2201),
+(4, '1712345678', '2023-09-20', '10:45:00', 2201),
+(5, '1712345678', '2023-10-10', '08:00:00', 2201),
+(6, '1712345678', '2023-10-25', '12:20:00', 2201),
+(7, '1712345678', '2023-11-05', '08:50:00', 2201),
+(8, '1712345678', '2023-11-18', '11:15:00', 2201),
+(9, '1712345678', '2023-12-01', '08:10:00', 2201),
+(10, '1712345678', '2023-12-20', '13:00:00', 2201);
+
+-- Ver todos los empleados
+SELECT * FROM empleado;
+
+-- Ver todos los registros de entrada
+SELECT * FROM registros_entrada;
+
+SELECT 
+    e.nombre, 
+    r.cedula_empleado, 
+    r.fecha, 
+    r.hora
+FROM registros_entrada r
+JOIN empleado e ON r.codigo_empleado = e.codigo_empleado;

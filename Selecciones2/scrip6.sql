@@ -71,3 +71,45 @@ where (codigo between 1 and 5) and
 (numero_cuenta::int between 22002 and 22004) 
 and extract(month from fecha)=5 
 and extract(day from fecha) in (26,29);
+
+
+----- DEBER FK
+CREATE TABLE banco (
+	codigo_banco int not null,
+	codigo_transaccion int not null,
+	detalle varchar(100) not null,
+	constraint banco_pk primary key (codigo_banco),
+	constraint transacciones_banco_fk foreign key(codigo_transaccion)
+	references transacciones(codigo)
+)
+delete from transacciones
+INSERT INTO transacciones (codigo, numero_cuenta, monto, tipo, fecha, hora) VALUES
+(1, '22001', 50.00, 'C', '2023-12-01', '08:00'), -- Condición: código 1 y tipo 'C'
+(2, '22002', 100.00, 'C', '2023-12-01', '09:30'), -- Condición: tipo 'C'
+(3, '22004', 25.50, 'C', '2023-12-02', '10:15'),  -- Condición: tipo 'C'
+(4, '22005', 10.00, 'D', '2023-12-02', '11:00'),
+(5, '22001', 200.00, 'D', '2023-12-03', '12:45'),
+(6, '22008', 45.00, 'C', '2023-12-03', '14:20'),
+(7, '22002', 30.00, 'D', '2023-12-04', '15:10'),
+(8, '22010', 500.00, 'C', '2023-12-04', '16:00'),
+(9, '22003', 15.00, 'D', '2023-12-05', '17:30'),
+(10, '22001', 60.00, 'C', '2023-12-05', '08:50');
+
+INSERT INTO banco (codigo_banco, codigo_transaccion, detalle) 
+VALUES (101, 1, 'Depósito por ventanilla - Sean');
+
+--- CODIGOS DE CONSULTA
+SELECT * FROM transacciones 
+WHERE tipo = 'C' 
+AND numero_cuenta BETWEEN '22001' AND '22004';
+
+SELECT * FROM transacciones 
+WHERE codigo = 1;
+
+SELECT t.codigo, t.monto, b.detalle 
+FROM transacciones t
+JOIN banco b ON t.codigo = b.codigo_transaccion;
+
+SELECT tipo, COUNT(*) as total 
+FROM transacciones 
+GROUP BY tipo;
