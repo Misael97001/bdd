@@ -45,3 +45,48 @@ select* from videojuegos
 where (descripcion='guerra' 
 and valoracion>7 and nombre like 'C%')
 or (valoracion>8 and nombre like 'D%');
+
+--- DEBER 23
+create table plataformas(
+	id_plataforma int not null,
+	nombre_plataforma varchar(50)not null,
+	codigo_videojuego int not null,
+	constraint plataforma_pk primary key (id_plataforma),
+	constraint videojuegos_plataformas_fk 
+	foreign key (codigo_videojuego)
+	references videojuegos(codigo)
+);
+
+delete from videojuegos
+INSERT INTO videojuegos (codigo, nombre, descripcion, valoracion) VALUES 
+(1, 'Call of Duty', 'Juego de Guerra en primera persona', 9),
+(2, 'God of war', 'Acción y aventura basada en mitología', 10),
+(3, 'Crysis', 'Guerra futurista con nanotrajes', 8),
+(4, 'Dark Souls', 'RPG de acción y fantasía oscura', 9),
+(5, 'Doom Eternal', 'Guerra contra demonios en el infierno', 9),
+(6, 'Civilization VI', 'Estrategia de construcción de imperios', 7),
+(7, 'Detroit: Become Human', 'Aventura gráfica sobre androides', 8),
+(8, 'Dragon Ball FighterZ', 'Lucha basada en el anime', 9),
+(9, 'Counter Strike', 'Guerra táctica entre equipos', 8),
+(10, 'Dead Space', 'Horror de supervivencia en el espacio', 10);
+
+INSERT INTO plataformas (id_plataforma, nombre_plataforma, codigo_videojuego) VALUES 
+(1, 'PC', 1),
+(2, 'PlayStation 5', 2),
+(3, 'Xbox Series X', 3),
+(4, 'PC', 4),
+(5, 'Nintendo Switch', 8),
+(6, 'PlayStation 4', 2);
+
+
+------------ DEBER 24 CONSULTAS
+select v.nombre, v.descripcion, v.valoracion, p.nombre_plataforma 
+from videojuegos v, plataformas p 
+where v.codigo = p.codigo_videojuego 
+and (
+    (v.descripcion like '%Guerra%' and v.valoracion > 7) 
+    or (v.nombre like 'C%' and v.valoracion > 8) 
+    or (v.nombre like 'D%')
+);
+select * from plataformas p
+where p.codigo_videojuego=(select codigo from videojuegos where nombre='God of war');

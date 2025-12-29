@@ -110,3 +110,12 @@ select
     (p.precio * v.cantidad) as total_venta
 from productos p
 join ventas v on p.codigo = v.codigo_producto;
+
+
+--- DEBER 24 CONSULTAS
+select p.nombre, p.stock, v.cantidad  from productos p, ventas v
+where p.codigo=v.codigo_producto 
+and (p.nombre like '%m%' or p.descripcion='0')
+
+select nombre,stock from productos p, ventas v
+where v.codigo_producto='5' and p.codigo='5'

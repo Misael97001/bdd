@@ -95,7 +95,18 @@ INSERT INTO prestamo (cedula, monto, fecha_prestamo, hora_prestamo, garante) VAL
 SELECT * FROM prestamo 
 WHERE monto BETWEEN 100::money AND 1000::money;
 
+
+select pe.nombre, pe.apellido, pr.monto, pr.garante from personas pe, prestamo pr where pe.cedula=pr.cedula
+
 SELECT p.nombre, pr.monto, pr.fecha_prestamo 
 FROM personas p
 JOIN prestamo pr ON p.cedula = pr.cedula
 WHERE p.nombre = 'Sean';
+
+
+-- DEBER 24 CONSULTAS
+select pe.cantidad_ahorrada, pr.monto, pr.garante from personas pe, prestamo pr
+where pr.monto::numeric between 100 and 1000;
+
+select * from personas pe
+where pe.cedula=(select cedula from personas where nombre='Sean');

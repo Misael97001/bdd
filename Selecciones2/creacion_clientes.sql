@@ -67,3 +67,11 @@ select
     co.monto
 from clientes c
 join compras co on c.cedula = co.cedula;
+
+
+---- CONSULTAS DEBER 24
+select nombre, apellido from clientes
+where cedula like '%7%';
+
+select * from clientes
+where nombre='Monica'

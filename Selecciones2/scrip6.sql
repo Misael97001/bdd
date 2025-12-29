@@ -113,3 +113,12 @@ JOIN banco b ON t.codigo = b.codigo_transaccion;
 SELECT tipo, COUNT(*) as total 
 FROM transacciones 
 GROUP BY tipo;
+
+
+-- DEBER 24 
+
+select * from transacciones
+where tipo='C' and numero_cuenta::numeric between 22001 and 22004;
+
+SELECT * FROM transacciones 
+WHERE codigo = (SELECT codigo_transaccion FROM banco WHERE codigo = 1);

@@ -103,3 +103,14 @@ insert into cuentas (numero_cuenta, cedula_propietario, fecha_creacion, saldo) v
 select * from cuentas
 
 select * from usuario
+
+--- DEBER CONSULTAS RETO 24
+
+select c.numero_cuenta, u.nombre, c.saldo
+from cuentas c, usuario u
+where c.cedula_propietario=u.cedula 
+and c.saldo::numeric between 100 and 1000;
+
+
+select cu.numero_cuenta,cu.fecha_creacion,cu.saldo,cu.cedula_propietario from cuentas cu, usuario us 
+where cu.cedula_propietario = us.cedula and cu.fecha_creacion between '2022-09-21' and '2023-09-21';

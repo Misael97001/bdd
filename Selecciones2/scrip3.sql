@@ -127,3 +127,10 @@ select
     prof.nombre as nombre_profesor
 from estudiantes est
 inner join profesores prof on est.codigo_profesor = prof.codigo;
+
+----------- DEBER 24
+select codigo_profesor,nombre,apellido 
+from estudiantes where apellido like '%n%';
+
+select * from estudiantes est, profesores pro
+where pro.nombre='Francisco';
