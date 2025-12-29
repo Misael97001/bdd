@@ -40,7 +40,6 @@ insert into clientes (cedula, nombre, apellido, edad) values
 ('1722233377','Diana','Paz',29),      -- Tiene '7'
 ('0917778889','Kevin','Salazar',33);  -- Tiene '7'
 
--- 6. INSERTAR COMPRAS (Importante: incluir el id_compra)
 insert into compras (id_compra, cedula, fecha_compra, monto) values
 (1, '1723456789','2023-01-10',120.50),
 (2, '1723456789','2023-03-15',250.00),
@@ -55,10 +54,8 @@ insert into compras (id_compra, cedula, fecha_compra, monto) values
 
 --- CONSULTAS DE VERIFICACIÓN ---
 
--- Clientes con '7' en su cédula
 select * from clientes where cedula like '%7%';
 
--- El JOIN que te marcaba error (ahora funcionará)
 select 
     c.nombre,
     c.apellido,
@@ -74,4 +71,4 @@ select nombre, apellido from clientes
 where cedula like '%7%';
 
 select * from clientes
-where nombre='Monica'
+where nombre='Monica';
