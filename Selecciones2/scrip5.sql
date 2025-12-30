@@ -90,3 +90,11 @@ and (
 );
 select * from plataformas p
 where p.codigo_videojuego=(select codigo from videojuegos where nombre='God of war');
+
+----- DEBER 25 CONSULTAS DE AGREGACION 
+
+SELECT codigo_videojuego, COUNT(*) AS total_plataformas
+FROM plataformas
+GROUP BY codigo_videojuego;
+
+select ROUND (avg(valoracion),2) as valoracion_promedio from videojuegos

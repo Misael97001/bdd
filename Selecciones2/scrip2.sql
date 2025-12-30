@@ -114,3 +114,12 @@ and c.saldo::numeric between 100 and 1000;
 
 select cu.numero_cuenta,cu.fecha_creacion,cu.saldo,cu.cedula_propietario from cuentas cu, usuario us 
 where cu.cedula_propietario = us.cedula and cu.fecha_creacion between '2022-09-21' and '2023-09-21';
+
+--- DEBER 25 CONSULTAS DE AGREGACION
+select * from cuentas
+
+select avg(cast(saldo as numeric)) as saldo_promedio from cuentas c
+where c.cedula_propietario='14312'
+
+select u.tipo_cuenta, count(*) as total_cuentas from usuario u 
+group by u. tipo_cuenta;

@@ -119,3 +119,9 @@ and (p.nombre like '%m%' or p.descripcion='0')
 
 select nombre,stock from productos p, ventas v
 where v.codigo_producto='5' and p.codigo='5'
+
+
+---- DEBER 25 CONSULTAS DE AGREGACION
+select max (precio) as precio_maximo from productos
+
+select sum(cantidad) as cantidad_total_vendida from ventas

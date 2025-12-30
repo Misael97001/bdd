@@ -115,3 +115,12 @@ and (
 
 select re.codigo_registro, em.nombre from empleado em,registros_entrada re
 where em.codigo_empleado='2201';
+
+
+--- DEBER 25 REGISTROS ENTRADA Y EMPLEADO4
+
+select cedula_empleado, count(*) as total_registros_entrada
+from registros_entrada
+group by cedula_empleado
+
+select max (fecha) as fecha_maxima, min(fecha) as fecha_minima from registros_entrada

@@ -134,3 +134,10 @@ from estudiantes where apellido like '%n%';
 
 select * from estudiantes est, profesores pro
 where pro.nombre='Francisco';
+
+
+-------- DEBER 25
+select codigo_profesor, count(*) as total_estudiantes 
+from estudiantes
+group by codigo_profesor
+

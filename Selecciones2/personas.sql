@@ -110,3 +110,13 @@ where pr.monto::numeric between 100 and 1000;
 
 select * from personas pe
 where pe.cedula=(select cedula from personas where nombre='Sean');
+
+--DEBER 25 CONSULTAS DE AGREGACION
+select * from prestamo 
+
+select pr.cedula, sum(pr.monto)from prestamo pr
+group by pr.cedula
+
+select count(*) as total_personas from personas
+where numero_hijos>1
+

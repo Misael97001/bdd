@@ -52,6 +52,9 @@ insert into compras (id_compra, cedula, fecha_compra, monto) values
 (9, '1722233377','2023-08-22',145.30),
 (10, '0917778889','2023-09-05',780.00);
 
+insert into compras (id_compra, cedula, fecha_compra, monto) values
+(11, '1723456789','2023-01-10',1500.50);
+
 --- CONSULTAS DE VERIFICACIÓN ---
 
 select * from clientes where cedula like '%7%';
@@ -72,3 +75,16 @@ where cedula like '%7%';
 
 select * from clientes
 where nombre='Monica';
+
+
+-- CONSULTAS DEBER 25
+select * from compras
+
+select co.cedula, SUM(co.monto::numeric)
+from compras co, clientes cl
+where co.cedula = cl.cedula
+group by co.cedula
+
+select fecha_compra, count (*) as tota_compras
+from compras where fecha_compra='2023-01-10'
+group by fecha_compra

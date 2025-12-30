@@ -122,3 +122,14 @@ where tipo='C' and numero_cuenta::numeric between 22001 and 22004;
 
 SELECT * FROM transacciones 
 WHERE codigo = (SELECT codigo_transaccion FROM banco WHERE codigo = 1);
+
+-- DEBER 25
+select  count (*) as total_transaccione_credito from transacciones
+where tipo='C'
+
+select * from transacciones
+
+select numero_cuenta, 
+round (avg(cast(monto as decimal )),2) as monto_promedio
+from transacciones
+group by numero_cuenta
