@@ -123,4 +123,5 @@ select cedula_empleado, count(*) as total_registros_entrada
 from registros_entrada
 group by cedula_empleado
 
-select max (fecha) as fecha_maxima, min(fecha) as fecha_minima from registros_entrada
+select max (fecha) as fecha_maxima, min(fecha) as fecha_minima
+from registros_entrada
